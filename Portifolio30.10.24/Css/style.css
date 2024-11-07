@@ -1,0 +1,154 @@
+:root {
+    --cor-texto: #fff;
+    --cor-transicao: #D91656;
+    --fonte-principal: 'Franklin Gothic Medium';
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-image: url(/img/fundo-rede.jpg);
+    background-size: cover;
+    background-position: center;
+   
+}
+
+
+/*Navegador*/
+
+.cabecalho__menu {
+    display: flex;
+}
+
+.cabecalho__menu__logo {
+    margin-left: 15px;
+}
+
+.cabecalho__menu-link {
+    text-decoration: none;
+    margin-right: 20px;
+    padding-left: 20px;
+    padding-top: 1rem;
+    color: var(--cor-texto);
+    font-family: var(--fonte-principal);
+}
+
+.cabecalho__menu-link:hover {
+    color: var(--cor-transicao);
+}
+
+
+/*Apresentação*/
+
+.apresentacao {
+    display: flex;
+    margin: 0 3%;
+}
+
+.apresentacao__conteudo__texto {
+    color: var(--cor-texto);
+    font-size: 50px;
+    gap: 1em;
+    margin-top: 25%;
+    /*sobra do texto*/
+  text-shadow: 
+    -1px -1px 0 #000000, /* Contorno à esquerda e acima */
+     1px -1px 0 #000000, /* Contorno à direita e acima */
+    -1px  1px 0 #000000, /* Contorno à esquerda e abaixo */
+     1px  1px 0 #000000; /* Contorno à direita e abaixo */
+}
+
+strong {
+    color: var(--cor-transicao);
+}
+
+.apresentação__conteudo-paragrafo {
+    color: var(--cor-texto);
+    font-size: 20px;
+    gap: 1em;
+    margin-top: 5%;
+    padding-right: 5%;
+     /*sobra do texto*/
+  text-shadow: 
+  -1px -1px 0 #000000, /* Contorno à esquerda e acima */
+   1px -1px 0 #000000, /* Contorno à direita e acima */
+  -1px  1px 0 #000000, /* Contorno à esquerda e abaixo */
+   1px  1px 0 #000000; /* Contorno à direita e abaixo */
+}
+
+.imagem__principal {
+    width: 30%;
+    margin-top: auto;
+}
+
+.imagem__arredondada {
+    border-radius: 50%;
+}
+
+/*botões*/
+
+.btn {
+    width: 100%;
+    
+}
+
+.btn__Contato {
+color: #fff;
+margin-top: 1%;
+margin-left: 5%;
+gap: 1em;
+text-shadow: 
+  -1px -1px 0 #000000, /* Contorno à esquerda e acima */
+   1px -1px 0 #000000, /* Contorno à direita e acima */
+  -1px  1px 0 #000000, /* Contorno à esquerda e abaixo */
+   1px  1px 0 #000000; /* Contorno à direita e abaixo */
+   
+}
+
+.btn__Contato__links {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn__Contato__links-titulo {
+    font-size: 50px;
+    font-family: var(--fonte-principal);
+    margin-bottom: 25px;
+}
+
+.btn__Contato__links-link {
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    width: 50%;
+    background-color: var(--cor-transicao);
+    border: 2px solid var(--cor-transicao);
+    text-decoration: none;
+    font-family: var(--fonte-principal);
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: var(--cor-texto);
+}
+
+.btn__Contato__links-link:hover {
+    background-color: #5c1a30;
+}
+
+/*Rodapé*/
+
+.rodape {
+    color: var(--cor-texto);
+    padding: 1em 0;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 6%;
+    font-family: var(--fonte-principal);
+}
