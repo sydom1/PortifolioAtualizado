@@ -72,12 +72,16 @@ strong {
     100% { opacity: 1; }
 }
 
+
 .card-container {
     position: relative;
     display: inline-block;
-    width: 200px;
+    width: 20%;
     height: 200px;
     overflow: hidden;
+    margin: 50px 15px;
+    padding: 15px;
+    flex-wrap: wrap;
 }
 
 .logo_img {
@@ -106,7 +110,7 @@ strong {
     opacity: 0;
     transition: opacity 0.3s ease;
     text-align: center;
-    pointer-events: none; /* Prevents clicks */
+    pointer-events: none;
 }
 
 .card-container.active .info {
