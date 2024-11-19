@@ -1,14 +1,20 @@
+/*Geral*/
+/* Inicio Elemento raiz*/
 :root {
     --cor-texto: #fff;
     --cor-transicao: #D91656;
     --fonte-principal: 'Franklin Gothic Medium';
 }
+/* Fim Elemento raiz*/
 
+/* Inicio reset da pagina*/
 * {
     margin: 0;
     padding: 0;
 }
+/* Fim reset da pagina*/
 
+/* Inicio estilização geral*/
 body {
     width: 100%;
     height: 100vh;
@@ -18,8 +24,9 @@ body {
     display: flex;
     flex-direction: column;
 }
+/* Fim estilização geral*/
 
-/* Navegador */
+/*Inicio Navegador Geral*/
 .cabecalho__menu {
     display: flex;
     gap: 2em;
@@ -42,8 +49,9 @@ body {
 .cabecalho__menu-link:hover {
     color: var(--cor-transicao);
 }
+/*Fim Navegador Geral*/
 
-/* Apresentação */
+/*Inicio Apresentação paginas index, sobreMim e Projetos  */
 .apresentacao {
     display: flex;
     margin: 0 3%;
@@ -52,6 +60,9 @@ body {
     align-items: center;
 }
 
+/*Fim Apresentação paginas index, sobreMim e Projetos  */
+
+/*Inicio Apresentação paginas index e sobreMim  */
 .apresentacao__conteudo {
     flex: 1; 
     margin-right:40px;
@@ -65,10 +76,21 @@ body {
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
+.apresentação__conteudo-paragrafo {
+    color: var(--cor-texto);
+    font-size: 20px;
+    gap: 1em;
+    margin-top: 5%;
+    padding-right: 5%;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
 strong {
     color: var(--cor-transicao);
 }
+/*Fim Apresentação paginas index e sobreMim  */
 
+/*inicio Pg index na tag stong para sumir o nome ao carregar a pg*/
 .invisivel {
     opacity: 0;
     animation: fadeIn 3s forwards;
@@ -78,7 +100,9 @@ strong {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
+/*Fim Pg index na tag stong para sumir o nome ao carregar a pg*/
 
+/*Inicio cards com as liguagens*/
 .card-container {
     position: relative;
     display: grid;
@@ -161,15 +185,9 @@ strong {
     opacity: 0.3; /* Tornar a imagem menos visível ao exibir o texto */
 }
 
-.apresentação__conteudo-paragrafo {
-    color: var(--cor-texto);
-    font-size: 20px;
-    gap: 1em;
-    margin-top: 5%;
-    padding-right: 5%;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
+/*Fim cards com as liguagens*/
 
+/*Inicio imagem da pg sobreMim*/
 .imagem__principal {
     width: 40%;
     margin: auto;
@@ -179,8 +197,9 @@ strong {
 .imagem__arredondada {
     border-radius: 50%;
 }
+/*Fim imagem da pg sobreMim*/
 
-/* Projetos*/
+/*Inicio pg Projetos*/
 /* Estilos dos cards */
 
 .apresentacao_card {
@@ -216,8 +235,9 @@ strong {
     color: var(--cor-transicao);
     transform: rotate(0deg);
 }
+/*Fim pg Projetos*/
 
-
+/*Inicio pg contatos*/
 /* Botões */
 .btn {
     display: flex;
@@ -262,8 +282,9 @@ strong {
 .btn__Contato__links-link:hover {
     background-color: #5c1a30;
 }
+/*Fim pg contatos*/
 
-/* Rodapé */
+/* Rodapé Geral*/
 .rodape {
     color: var(--cor-texto);
     padding: 1em 0;
