@@ -1,20 +1,14 @@
-/*Geral*/
-/* Inicio Elemento raiz*/
 :root {
     --cor-texto: #fff;
     --cor-transicao: #D91656;
     --fonte-principal: 'Franklin Gothic Medium';
 }
-/* Fim Elemento raiz*/
 
-/* Inicio reset da pagina*/
 * {
     margin: 0;
     padding: 0;
 }
-/* Fim reset da pagina*/
 
-/* Inicio estilização geral*/
 body {
     width: 100%;
     height: 100vh;
@@ -24,9 +18,8 @@ body {
     display: flex;
     flex-direction: column;
 }
-/* Fim estilização geral*/
 
-/*Inicio Navegador Geral*/
+/* Navegador */
 .cabecalho__menu {
     display: flex;
     gap: 2em;
@@ -49,9 +42,8 @@ body {
 .cabecalho__menu-link:hover {
     color: var(--cor-transicao);
 }
-/*Fim Navegador Geral*/
 
-/*Inicio Apresentação paginas index, sobreMim e Projetos  */
+/* Apresentação */
 .apresentacao {
     display: flex;
     margin: 0 3%;
@@ -60,9 +52,6 @@ body {
     align-items: center;
 }
 
-/*Fim Apresentação paginas index, sobreMim e Projetos  */
-
-/*Inicio Apresentação paginas index e sobreMim  */
 .apresentacao__conteudo {
     flex: 1; 
     margin-right:40px;
@@ -76,21 +65,10 @@ body {
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-.apresentação__conteudo-paragrafo {
-    color: var(--cor-texto);
-    font-size: 20px;
-    gap: 1em;
-    margin-top: 5%;
-    padding-right: 5%;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
-
 strong {
     color: var(--cor-transicao);
 }
-/*Fim Apresentação paginas index e sobreMim  */
 
-/*inicio Pg index na tag stong para sumir o nome ao carregar a pg*/
 .invisivel {
     opacity: 0;
     animation: fadeIn 3s forwards;
@@ -100,44 +78,38 @@ strong {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
-/*Fim Pg index na tag stong para sumir o nome ao carregar a pg*/
 
-/*Inicio cards com as liguagens*/
 .card-container {
-    position: relative;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 30%;
-    height: 50%;
-    overflow: hidden;
-    margin: 50px 25px;
-    padding: 15px;
-    flex-wrap: wrap;
-    gap: 15px;
+    grid-template-columns: repeat(3, 1fr); /* Mantendo o layout em 3 colunas */
+    grid-gap: 15px;
+    width: 35%; /*0 largura disponível do container */
+    margin: 50px auto;
+    padding: 25px;
 }
 
 .card {
-    position: relative; /* Para que o texto fique sobreposto à imagem */
-    background-color: transparent; /* Removendo o fundo branco */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    width: 100px;
-    height: 100px;
-    overflow: hidden; /* Garantindo que o conteúdo extra não "vaze" */
+    width: 100%; /* O card agora se ajusta à largura da célula da grid */
+    height: 150px; /* Altura dos cards */
+    position: relative;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .logo_img {
     width: 100%;
     height: 100%;
-    /*object-fit: cover;*/ /*A imagem se ajusta ao tamanho do card*/
-    transition: transform 0.5s ease; /* Suave transição da opacidade */
+    object-fit: cover; /* A imagem preenche o card */
+    transition: transform 0.5s ease;
+    margin: 10px;
 }
 
 .card:hover .logo_img {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Efeito de hover para aumentar um pouco a imagem */
 }
 
 .info {
@@ -146,7 +118,7 @@ strong {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente sobreposto */
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
     color: white;
     display: flex;
     align-items: center;
@@ -155,39 +127,42 @@ strong {
     font-size: 14px;
     padding: 10px;
     opacity: 0; /* Invisível por padrão */
-    transition: opacity 0.5s ease; /* Suave transição para a opacidade */
+    transition: opacity 0.5s ease, font-size 0.5s ease;
+    z-index: 1;
+    border-radius: 10px;
 }
 
-/* Estilos para o parágrafo escondido */
-.info p {
-    margin: 0;
-    font-size: 14px;
-    color: #666;
-    line-height: 1.4;
-    background-color: transparent; /* Background transparente por padrão */
-    padding: 10px;
-    display: none; /* Escondido por padrão */
-    transition: background-color 0.3s, font-size 0.3s; /* Suave transição */
+.card.active .logo_img {
+    opacity: 0; /* Esconde a imagem ao ativar o card */
 }
 
-.info.show p {
-    display: block;
-    background-color: #f5f5f5; /* Cor de fundo após o clique */
-    font-size: 16px; /* Tamanho do texto maior após o clique */
+.card.active .info {
+    opacity: 1; /* Mostra o texto */
+    font-size: 24px; /* Ajusta o tamanho do texto */
 }
 
-
-.card-container.active .info {
-    opacity: 1; /* Exibir o texto quando o card estiver ativo */
+.card-container.expanded {
+    grid-template-columns: 1fr; /* Quando expandido, o conteúdo ocupa uma única coluna */
 }
 
-.card-container.active .logo_img {
-    opacity: 0.3; /* Tornar a imagem menos visível ao exibir o texto */
+.card.active {
+    grid-column: 1 / -1; /* O card ativo ocupa toda a largura do grid */
+    height: auto; /* O card aumenta de altura para ajustar o conteúdo */
 }
 
-/*Fim cards com as liguagens*/
+.card.inactive {
+    display: none; /* Esconde os outros cards */
+}
 
-/*Inicio imagem da pg sobreMim*/
+.apresentação__conteudo-paragrafo {
+    color: var(--cor-texto);
+    font-size: 20px;
+    gap: 1em;
+    margin-top: 5%;
+    padding-right: 5%;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
 .imagem__principal {
     width: 40%;
     margin: auto;
@@ -197,9 +172,8 @@ strong {
 .imagem__arredondada {
     border-radius: 50%;
 }
-/*Fim imagem da pg sobreMim*/
 
-/*Inicio pg Projetos*/
+/* Projetos*/
 /* Estilos dos cards */
 
 .apresentacao_card {
@@ -214,13 +188,14 @@ strong {
     width: 350px;  /* Largura do card */
     height: 300px; /* Altura do card */
     box-shadow: 0px 4px 8px rgba(238, 24, 24, 0.1);
+    cursor: pointer;
 }
 
 .apresentacao_card_cards {
-    margin: 100px;
+    width: 90%;
+    margin: 110px auto;
     background-color: #ccc;
-    transform: rotate(-28deg);
-    padding: 10px;
+   transform: rotate(-28deg);
     z-index: 1;
     display: flex;
     justify-content: center;
@@ -235,9 +210,8 @@ strong {
     color: var(--cor-transicao);
     transform: rotate(0deg);
 }
-/*Fim pg Projetos*/
 
-/*Inicio pg contatos*/
+
 /* Botões */
 .btn {
     display: flex;
@@ -282,9 +256,8 @@ strong {
 .btn__Contato__links-link:hover {
     background-color: #5c1a30;
 }
-/*Fim pg contatos*/
 
-/* Rodapé Geral*/
+/* Rodapé */
 .rodape {
     color: var(--cor-texto);
     padding: 1em 0;
@@ -292,4 +265,4 @@ strong {
     font-size: 16px;
     margin-top: 6%;
     font-family: var(--fonte-principal);
-}
+}    
